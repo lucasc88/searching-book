@@ -1,5 +1,5 @@
 <section class="container">
-  <header>Que livro você procura?</header>
+  <header>What book are you looking for?</header>
   <div class="busca">
     <input
       type="search"
@@ -8,7 +8,7 @@
       <img src="assets/imagens/icone-busca.png" alt="Lupa de cor roxa">
     </button>
   </div>
-  <p>Busque por assunto, autoria, nome...</p>
+  <p>Search by subject, author, name...</p>
 <div class="container-card" *ngIf="listaLivros?.length > 0, else telaInicial">
   <div *ngFor="let livro of listaLivros">
     <app-livro [livro]="livro"></app-livro>
@@ -16,7 +16,7 @@
 </div>
 <ng-template #telaInicial>
   <div class="imagens">
-    <h1 class="titulo">Busque o livro <br> que quiser na <br> nossa estante!</h1>
+    <h1 class="titulo">Search for<br> any book <br>on our bookshelf!</h1>
     <img
       class="ilustracao"
       src="../../assets/imagens/ilustracao-estante.png"
