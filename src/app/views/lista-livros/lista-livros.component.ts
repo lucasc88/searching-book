@@ -17,6 +17,7 @@ export class ListaLivrosComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     //release resource to avoid memory leak
+    console.log("Resouce was released because the Unsubscribe has been done!");
     this.subscription.unsubscribe();
   }
 
