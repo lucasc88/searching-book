@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { BookResult } from '../models/BookInterfaces';
 
 @Injectable({
@@ -14,6 +14,10 @@ export class BookService {
 
   search(value: string): Observable<BookResult> {
     const params = new HttpParams().append('q', value);
-    return this.http.get<BookResult>(this.API, { params });
+    return this.http.get<BookResult>(this.API, { params })
+    .pipe(//pipe aloows to use any other operator
+      //tap does not change the previous operator flow, it's just a simple operator
+      tap(returnedData => console.log("returnedData: " + JSON.stringify(returnedData)))
+    );
   }
 }
